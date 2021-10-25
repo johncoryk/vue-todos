@@ -1,8 +1,8 @@
 <template>
   <Header />
   <div class="container my-3">
-    <div class="input-group">
-      <form @submit.prevent="addTodo()">
+    <form @submit.prevent="addTodo()">
+      <div class="input-group">
         <input
           v-model="todo.title"
           type="text"
@@ -16,8 +16,8 @@
         >
           Add Todo
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
   <div class="container">
     <Card v-bind:todos="todos" />
@@ -40,11 +40,7 @@ export default {
       todo: {
         title: '',
       },
-      todos: [
-        {
-          title: 'hello',
-        },
-      ],
+      todos: [],
     };
   },
 
