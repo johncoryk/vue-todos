@@ -1,11 +1,8 @@
 <template>
   <div class="card text-white bg-primary mb-3" style="max-width: 20rem">
     <div class="card-header">Todo</div>
-    <div class="card-body">
-      <h4 class="card-title">{{ todoTitle }}Title</h4>
-      <p class="card-text">
-        {{ todoDescription }}
-      </p>
+    <div v-for="todo in todos" :key="todo.title" class="card-body">
+      <h4 class="card-title">{{ todo.title }}</h4>
     </div>
   </div>
 </template>
@@ -13,9 +10,16 @@
 <script>
 export default {
   name: 'Card',
+  data() {
+    return {
+      todo: {
+        title: '',
+        isDone: false,
+      },
+    };
+  },
   props: {
-    todoTitle: String,
-    todoDescription: String,
+    todos: [],
   },
 };
 </script>
